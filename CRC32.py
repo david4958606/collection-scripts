@@ -1,4 +1,3 @@
-from cgitb import text
 import sys, os
 import zlib
 
@@ -9,8 +8,8 @@ if sys.version_info[:2] < (3, 6):
     sys.exit(1)
 
 file_list = sys.argv[1:]
-text  = open("result.txt", "w+")
-text.close()
+result  = open("result.txt", "w+")
+result.close()
 
 print("输入 {} 个文件".format(len(file_list)))
 for f in file_list:
@@ -24,9 +23,9 @@ for f in file_list:
     hash = "{:08X}".format(hash)
     print(hash)
     file.close()
-    text = open("result.txt", "a+")
-    text.write(hash)
-    text.write("\n")
-    text.close()
+    result = open("result.txt", "a+")
+    result.write(hash)
+    result.write("\n")
+    result.close()
 
 sys.exit(1)
